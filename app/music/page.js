@@ -1,8 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import './styles.css';
-import Link from 'next/link';
+import '../styles.css';
 
 const backgrounds = [
   '/backgrounds/bg1.webp',
@@ -48,11 +47,9 @@ export default function Home() {
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet"></link>
       </Head>
 
-      <div className="page-container">
-
-        <div className="title-container">
+      <div className="sub-container">
           <h1
-            className="title"
+            className="title-small"
             style={{
               backgroundImage: `url(${backgrounds[fadeIndex]})`,
               WebkitBackgroundClip: 'text',
@@ -62,10 +59,10 @@ export default function Home() {
           >
             BEACH FASHION MAGAZINE
           </h1>
-        </div>
-
+          <p>Select an album.</p>
+        
         <div className='navigation'>
-          <Link href='/music'><button>MUSIC</button></Link>
+          <button>MUSIC</button>
           <button>CALENDAR</button>
           <button>MAGAZINE</button>
         </div>
