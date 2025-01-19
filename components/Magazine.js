@@ -51,9 +51,9 @@ const FullPageWebDesign = () => {
           Your browser does not support the video tag.
         </video>
         
-        <div style={{ position: 'absolute', bottom: '0', textAlign: 'right', textShadow: '2px 2px #000000', right: '25px', width: '100%' }}>
+        <div style={{ backgroundColor: 'black', position: 'absolute', bottom: '0', textAlign: 'center', width: '100%' }}>
         <h2
-            style={{color: 'white'}}
+            style={{color: 'white', fontSize: '20px'}}
           >
             January MMXXV
           </h2>
