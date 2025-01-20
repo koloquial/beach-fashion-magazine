@@ -1,23 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useSwipeable } from 'react-swipeable'; // Add swipe functionality
-
-const backgrounds = [
-  '/backgrounds/bg1.webp',
-  '/backgrounds/bg2.webp',
-  '/backgrounds/bg3.webp',
-  '/backgrounds/bg4.webp',
-  '/backgrounds/bg5.webp',
-  '/backgrounds/bg6.webp',
-  '/backgrounds/bg7.webp',
-  '/backgrounds/bg8.webp',
-  '/backgrounds/bg9.webp',
-  '/backgrounds/bg10.webp',
-  '/backgrounds/bg11.webp',
-  '/backgrounds/bg12.webp',
-  '/backgrounds/bg13.webp',
-  '/backgrounds/bg14.webp',
-];
-
+import Link from "next/link";
+import coco from "@/authors/coco-lune.json";
+import daisy from  "@/authors/daisy-driftwood.json";
+import kiki from  "@/authors/kiki-seabreeze.json";
+import mia from '@/authors/mia-blossom.json'
+import misty from '@/authors/misty-shoreline.json'
+import poppy from '@/authors/poppy-palmtree.json'
+import sunny from '@/authors/sunny-starlette.json'
 import Article from '@/components/Article';
 import Quiz from './Quiz';
 import Story from './Story';
@@ -32,189 +20,112 @@ import Album from './Album';
 import Movie from './Movie';
 import Love from './Love';
 import Adventure from './Adventure';
-
 import secretsOfTheTwilightTides from '@/articles/2025/January/secrets-of-the-twilight-tides.json';
 import whatsYourBeachVibe from '@/articles/2025/January/whats-your-beach-vibe.json';
-import horoscopeData from '@/articles/2025/January/horoscope.json'
-import glowUp from '@/articles/2025/January/glow-up.json'
-import juicy from '@/articles/2025/January/juicy.json'
-import moonlit from '@/articles/2025/January/moonlit-message.json'
+import horoscopeData from '@/articles/2025/January/horoscope.json';
+import glowUp from '@/articles/2025/January/glow-up.json';
+import juicy from '@/articles/2025/January/juicy.json';
+import moonlit from '@/articles/2025/January/moonlit-message.json';
 
-import waves from '@/articles/2025/January/waves-of-whispers.json'
-import summer from '@/articles/2025/January/summer-love.json'
-import neon from '@/articles/2025/January/neon-or-neutral.json'
-import whisper from '@/articles/2025/January/whisper.json'
+import waves from '@/articles/2025/January/waves-of-whispers.json';
+import summer from '@/articles/2025/January/summer-love.json';
+import neon from '@/articles/2025/January/neon-or-neutral.json';
+import whisper from '@/articles/2025/January/whisper.json';
 
-import splash from '@/articles/2025/January/splash.json'
-import dreams from '@/articles/2025/January/dreams-on.json'
-
-import coco from '@/articles/2025/January/authors/coco-lune.json'
-import daisy from '@/articles/2025/January/authors/daisy-driftwood.json'
-import kiki from '@/articles/2025/January/authors/kiki-seabreeze.json'
-import mia from '@/articles/2025/January/authors/mia-blossom.json'
-import poppy from '@/articles/2025/January/authors/poppy-palmtree.json'
-import sunny from '@/articles/2025/January/authors/sunny-starlette.json'
-import misty from '@/articles/2025/January/authors/misty-shoreline.json'
-
-
-const FullPageWebDesign = () => {
-  const [currentPage, setCurrentPage] = useState(0);
-
-  const sections = [
-    {
-      id: 1,
-      content: (
-        <section className="section">
-          <h1>BEACH FASHION MAGAZINE</h1>
-          <video className="background-video" autoPlay muted loop>
-            <source src="/videos/january_2025_1.mp4" type="video/mp4" />
-          </video>
-        </section>
-      ),
-    },
-    {
-        id: 2,
-        content: (
-          <section className="section section-2">
-            <Article article={secretsOfTheTwilightTides} />
-            <Author author={misty} />
-          </section>
-        ),
-      },
-      {
-        id: 3,
-        content: (
-          <section className="section section-3">
-            <Horoscope data={horoscopeData} />
-            <Author author={daisy} />
-          </section>
-        ),
-      },
-      {
-        id: 4,
-        content: (
-          <section className="section section-4">
-            <Interview article={glowUp} />
-            <Author author={sunny} />
-          </section>
-        ),
-      },
-      {
-        id: 5,
-        content: (
-          <section className="section section-5">
-            <Story article={moonlit} />
-            <Author author={coco} />
-          </section>
-        ),
-      },
-      {
-        id: 6,
-        content: (
-          <section className="section section-6">
-            <Rumor article={waves} />
-          </section>
-        ),
-      },
-      {
-        id: 7,
-        content: (
-          <section className="section section-7">
-            <Quiz quizData={whatsYourBeachVibe} />
-            <Author author={poppy} />
-          </section>
-        ),
-      },
-      {
-        id: 8,
-        content: (
-          <section className="section section-8">
-            <Album article={dreams} />
-            <Author author={kiki} />
-          </section>
-        ),
-      },
-      {
-        id: 9,
-        content: (
-          <section className="section section-9">
-            <Movie article={splash} />
-            <Author author={mia} />
-          </section>
-        ),
-      },
-      {
-        id: 10,
-        content: (
-          <section className="section section-10">
-            <Gossip article={juicy} />
-          </section>
-        ),
-      },
-      {
-        id: 11,
-        content: (
-          <section className="section section-11">
-            <Love article={summer} />
-          </section>
-        ),
-      },
-      {
-        id: 12,
-        content: (
-          <section className="section section-12">
-            <Feud article={neon} />
-          </section>
-        ),
-      },
-      {
-        id: 13,
-        content: (
-          <section className="section section-13">
-            <Adventure story={whisper} />
-          </section>
-        ),
-      },
+import splash from '@/articles/2025/January/splash.json';
+import dreams from '@/articles/2025/January/dreams-on.json';
+import {useState } from 'react'
+const authors = [
+    { id: 1, name: "Coco Lune", data: coco },
+    { id: 2, name: "Daisy Driftwood", data: daisy },
+    { id: 3, name: "Kiki Seabreeze", data: kiki },
+    { id: 4, name: "Mia Blossom", data: mia },
+    { id: 5, name: "Poppy Palmtree", data: poppy },
+    { id: 6, name: "Sunny Starlette", data: sunny },
+    { id: 7, name: "Misty Shoreline", data: misty },
   ];
 
-  const nextSection = () => {
-    setCurrentPage((prev) => Math.min(prev + 1, sections.length - 1));
-  };
+  const articles = [
+    { id: 1, title: "Secrets of the Twilight Tides", component: <Article article={secretsOfTheTwilightTides} />, author: misty },
+    { id: 2, title: "Your January Horoscope", component: <Horoscope data={horoscopeData} />, author: daisy },
+    { id: 3, title: "Glow Up: Interview with Layla Pearl", component: <Interview article={glowUp} />, author: sunny },
+    { id: 4, title: "The Moonlit Message", component: <Story article={moonlit} />, author: coco },
+    { id: 5, title: "Waves of Whispers", component: <Rumor article={waves} />, author: misty },
+    { id: 6, title: "Beach Vibes Quiz", component: <Quiz quizData={whatsYourBeachVibe} />, author: poppy },
+    { id: 7, title: "Dreams on the Horizon: Album Review", component: <Album article={dreams} />, author: kiki },
+    { id: 8, title: "Splash into Drama: Movie Review", component: <Movie article={splash} />, author: mia },
+    { id: 9, title: "Juicy Gossip: Behind the Scenes", component: <Gossip article={juicy} />, author: sunny },
+    { id: 10, title: "Summer Love Triangle", component: <Love article={summer} />, author: coco },
+    { id: 11, title: "Neon vs Neutral Feud", component: <Feud article={neon} />, author: poppy },
+    { id: 12, title: "Whispered Adventures", component: <Adventure story={whisper} />, author: daisy },
+  ];
 
-  const prevSection = () => {
-    setCurrentPage((prev) => Math.max(prev - 1, 0));
-  };
+  const CardDesign = () => {
+    const [selectedArticle, setSelectedArticle] = useState(null);
+    const [selectedAuthor, setSelectedAuthor] = useState(null);
+  
+    return (
+      <div className="container">
+        {selectedArticle === null && selectedAuthor === null && <h1>BEACH FASHION MAGAZINE</h1>}
+        <video className="background-video" autoPlay muted loop>
+        <source src="/videos/january_2025_1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+        {!selectedArticle && !selectedAuthor && (
+          <>
+            <div className="grid">
+              {articles.map((article) => (
+                <div
+                  key={article.id}
+                  className="card"
+                  onClick={() => setSelectedArticle(article)}
+                >
+                  <h3>{article.title}</h3>
+                  <p>By {article.author.name}</p>
+                </div>
+              ))}
+            </div>
+            <div className="authors">
+              <h2>Meet the Authors</h2>
+              <div className="author-list">
+                {authors.map((author) => (
+                    <Link href={`/authors/${author.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <div
+                    key={author.id}
+                    className="author-card"
+                    
+                  >
+                    <p>{author.name}</p>
+                  </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+        {selectedArticle && (
+          <div className="article-view">
+            <button
+              className="back-button"
+              onClick={() => setSelectedArticle(null)}
+            >
+              Back to All Articles
+            </button>
+            <h2>{selectedArticle.title}</h2>
+            <div>{selectedArticle.component}</div>
+          </div>
+        )}
+        {selectedAuthor && (
+          <div className="author-view">
 
-  // Swipe handler for touch navigation
-  const handlers = useSwipeable({
-    onSwipedUp: nextSection,
-    onSwipedDown: prevSection,
-    trackTouch: true,
-    trackMouse: false,
-  });
-
-  return (
-    <div className="fullpage-container" {...handlers}>
-      {sections.map((section, index) => (
-        <div
-          key={index}
-          className={`fullpage ${index === currentPage ? 'active' : 'hidden'}`}
-          style={{ transform: `translateY(${(index - currentPage) * 100}%)` }}
-        >
-          {section.content}
-        </div>
-      ))}
-      <div className="carousel">
-        {sections.map((_, index) => (
-          <div
-            key={index}
-            className={`carousel-dot ${index === currentPage ? 'active' : ''}`}
-            onClick={() => setCurrentPage(index)}
-          ></div>
-        ))}
+          
+              <Author author={selectedAuthor.data} />
+         
+          </div>
+        )}
       </div>
-    </div>
-  );
-};
-
-export default FullPageWebDesign;
+    );
+  };
+  
+  export default CardDesign;
+  

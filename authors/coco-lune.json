@@ -1,12 +1,6 @@
 {
     "name": "Coco Lune",
-    "personalDetails": {
-      "birthdate": "August 29, 2004",
-      "age": 20,
-      "height": "5'6\"",
-      "hairColor": "Raven black with a soft, natural sheen",
-      "appearance": "Coco has a captivating, mysterious charm with her deep brown eyes and flawless, moonlit complexion. Her style is effortlessly chic, often featuring flowing fabrics in soft silvers and blues that mimic the ocean at night. She’s rarely seen without her favorite silver bangles that jingle softly as she moves."
-    },
+    "profile": "/authors/coco-lune.webp",
     "favorites": {
       "food": "Dark chocolate-dipped strawberries",
       "beachAccessory": "A sheer, moonlit shawl perfect for stargazing on breezy nights"
@@ -38,8 +32,7 @@
       ]
     },
     "horoscope": {
-      "sign": "Virgo",
-      "message": "Simplify and Refresh. Practical and poised, Virgo, this is the month to declutter your beach bag and refresh your essentials. Minimalist swimsuits in neutral tones are your go-to. Spend time organizing—whether it’s your thoughts or your space—to feel more aligned."
+      "sign": "Virgo"
     },
     "biographyStatement": "Hello, dreamers and romantics! I’m Coco Lune, your moonlit storyteller here to weave tales of love, mystery, and the ocean’s endless magic for Beach Fashion Magazine. My heart belongs to the quiet beauty of the night, where the stars inspire my writing and the waves sing their eternal songs. When I’m not crafting dreamy articles, you can find me wandering secluded beaches, penning love letters to the sea, or sipping cocoa while the moon rises. Let’s explore the shoreline’s hidden wonders and let our imaginations drift like the tides. 🌙✨"
   }

@@ -3,6 +3,22 @@ import Head from 'next/head';
 import './styles.css';
 import Magazine from '@/components/Magazine'
 
+const backgrounds = [
+  '/backgrounds/bg1.webp',
+  '/backgrounds/bg2.webp',
+  '/backgrounds/bg3.webp',
+  '/backgrounds/bg4.webp',
+  '/backgrounds/bg5.webp',
+  '/backgrounds/bg6.webp',
+  '/backgrounds/bg7.webp',
+  '/backgrounds/bg8.webp',
+  '/backgrounds/bg9.webp',
+  '/backgrounds/bg10.webp',
+  '/backgrounds/bg11.webp',
+  '/backgrounds/bg12.webp',
+  '/backgrounds/bg13.webp',
+  '/backgrounds/bg14.webp',
+];
 
 export default function Home() {
 
@@ -19,11 +35,7 @@ export default function Home() {
       </Head>
 
       <div className="page-container">
-
-        
-
         <Magazine />
-      
       </div>
     </>
   );
