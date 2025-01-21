@@ -5,16 +5,8 @@
   margin-top: 100px;
 }
 
-.authors {
-  margin-top: 50px;
-  text-align: center;
-}
 
-.authors h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #fff; /* White text for contrast */
-}
+
 
 .author-list {
   display: grid;
@@ -42,7 +34,3 @@
   border-radius: 50%;
 }
 
-.author-heading{
-  width: 100%;
-  text-align: center;
-}

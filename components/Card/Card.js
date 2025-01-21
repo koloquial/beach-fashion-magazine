@@ -2,19 +2,23 @@ import Link from "next/link";
 
 const Card = ({ article }) => {
     return (
-        <div key={`${article.name}`}>
+        <div key={`${article.name}`} className='card-container'>
         <Link href={`/${article.type.toLowerCase()}/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
         <div className="card">
             <div className='card-thumbnail'>
             {article.images && <img src={`http://localhost:5000${article.images[0]}`} />}
-            
             </div>
+
             <div className='title-author'>
-            <p>{article.title[0].toUpperCase()}{article.title.slice(1, article.title.length)}</p>
+            <h2>
+  {article.title.length > 30 
+    ? `${article.title.slice(0, 30)}...` 
+    : article.title[0].toUpperCase() + article.title.slice(1)}
+</h2>
 
-            <p className='date'>{article.type[0].toUpperCase()}{article.type.slice(1, article.type.length)}</p>
+            <p className='text-small art-type'>{article.type[0].toUpperCase()}{article.type.slice(1, article.type.length)}</p>
 
-            <p className='date'>{article.author}</p>
+            <p className='text-small art-type'>{article.author}</p>
             </div>
             
         </div>

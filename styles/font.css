@@ -2,7 +2,7 @@ h1{
     font-family: "Playfair Display SC", serif;
     color: white;
     padding: 0;
-    margin-top: 500px;
+    margin-top: 400px;
     text-align: center;
     user-select: none;
 }
@@ -20,6 +20,8 @@ h1{
     font-family: "Afacad Flux", serif;
     text-align: justify;
     text-justify: inter-word;
+    font-size: 18px;
+    font-weight: 200;
   }
 
   .content-type{
@@ -38,5 +40,15 @@ h1{
     padding: 0;
     margin: 0 0 20px 0;
     font-size: 45px;
-    text-align: right;
+    text-align: left;
+  }
+
+  h3{
+    font-family: "Afacad Flux", serif;
+  }
+
+  .carrot{
+    text-align: center;
+    color: var(--white);
+    font-size: 20px;
   }

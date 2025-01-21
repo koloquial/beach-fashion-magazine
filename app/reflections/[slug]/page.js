@@ -3,6 +3,10 @@
 import React, { use, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Loading from '@/components/Loading';
+import { FaShareAlt } from "react-icons/fa";
+import { FaComment } from "react-icons/fa";
+import { BiLike } from "react-icons/bi";
+import { BiSolidLike } from "react-icons/bi";
 
 const fetchArticleBySlug = async (slug) => {
   try {
@@ -48,6 +52,8 @@ const Reflections = ({ params }) => {
       <div className='article-container'>
 
         <p className='title'>BEACH FASHION MAGAZINE</p>
+    
+        <div className='page-grid'>
         <div className='author-grid'>
             <div className='profile-container'>
               <img src={`http://localhost:5000/images/authors/${article.author.toLowerCase().replace(/\s+/g, '-')}.webp`} />
@@ -61,6 +67,24 @@ const Reflections = ({ params }) => {
               </Link>
             </div>
           </div>
+          <div>
+            <a href='#'>
+            <span style={{marginRight: '20px'}}><FaShareAlt /> </span>
+            </a>
+            
+          
+          <a href='#'>
+          <span style={{marginRight: '20px'}}><FaComment /> </span>
+          </a>
+            
+            
+          
+          <a href='#'>
+            <span style={{marginRight: '20px'}}><BiLike /> </span>
+            </a>
+            </div>
+        </div>
+
         
 
       <div className='content-section'>
@@ -95,7 +119,11 @@ const Reflections = ({ params }) => {
 })}
         </div>
       </div>
+
+      <h2>Comments</h2>
+      <hr />
     </div>
+
     </div>
   );
 };

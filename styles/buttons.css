@@ -1,0 +1,14 @@
+button{
+    background-color: var(--white);
+    border: 1px solid var(--primary);
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--primary);
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--primary);
+        color: var(--white);
+    }
+}

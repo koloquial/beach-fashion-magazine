@@ -2,6 +2,7 @@
 @import url('./font.css');
 @import url('./links.css');
 @import url('./scrollbar.css');
+@import url('./buttons.css');
 
 body{
     background-color: var(--white);
@@ -89,5 +90,29 @@ body{
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    filter: brightness(0.6); /* Adjust brightness for readability */
+    filter: brightness(1);
+  }
+
+  .author-heading{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .favorites{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .page-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  hr{
+    border-top: 1px dotted var(--black);
+    margin: 0 0 20px 0;
+    padding: 0;
   }

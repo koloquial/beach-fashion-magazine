@@ -40,11 +40,14 @@ const fetchArticles = async () => {
     }
     return (
       <div className="container">
+
         <h1>BEACH FASHION MAGAZINE</h1>
+        <p className='carrot'> ▼</p>
+
         <video className="background-video" autoPlay muted loop>
-        <source src="/videos/january_2025_1.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+          <source src="/videos/january_2025_1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
         
             <div className="grid">
               {articles.map((article, index) => (

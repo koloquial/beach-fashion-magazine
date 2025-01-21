@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Loading from '@/components/Loading';
 
 const fetchArticleBySlug = async (slug) => {
-  console.log('called')
+  console.log('called');
   try {
     const response = await fetch(`http://localhost:5000/music/${slug}`);
     if (!response.ok) {
