@@ -3,11 +3,12 @@ import React from 'react';
 const Author = ({ author }) => {
 
   return (
+    <div className='page-container'>
     <div className='article-container'>
      
      <div className='author-heading'>
         <h2>{author.name}</h2>
-      <img className='profile' src={author.profile} />
+      <img className='profile' src={`http://localhost:5000${author.profile}`} />
       </div>
       
       <p>{author.biographyStatement}</p>
@@ -41,7 +42,7 @@ const Author = ({ author }) => {
           ))}
         </ul>
       </div>
-
+      </div>
   );
 };
 

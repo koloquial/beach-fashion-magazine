@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Article = ({ article }) => {
+const Reflection = ({ article }) => {
     console.log('article', article);
   return (
     <div className='article-container'>
@@ -19,4 +19,4 @@ const Article = ({ article }) => {
   );
 };
 
-export default Article;
+export default Reflection;

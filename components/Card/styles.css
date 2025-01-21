@@ -1,0 +1,29 @@
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(255, 255, 255, 0.9);
+    gap: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: .5s;
+    margin: 0;
+}
+  
+.card:hover {
+    transition: .5s;
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-thumbnail{
+    width: 100%;
+    img{
+        width: 100%;
+        border-radius: 5px;
+    }
+}
+  

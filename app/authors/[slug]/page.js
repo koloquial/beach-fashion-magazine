@@ -1,30 +1,47 @@
 'use client'
-import React from 'react';
+import React, { use, useState, useEffect } from 'react'
+import Author from '@/components/Author';
+import Loading from '@/components/Loading';
 
-import Author from '@/components/Author'; // Reuse the Author component
+const fetchAuthorBySlug = async (slug) => {
+  try {
+    const response = await fetch(`http://localhost:5000/authors/${slug}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const author = await response.json();
+    return author;
+  } catch (error) {
+    console.error('Error fetching author:', error);
+    return null;
+  }
+};
 
-import coco from "@/authors/coco-lune.json";
-import daisy from  "@/authors/daisy-driftwood.json";
-import kiki from  "@/authors/kiki-seabreeze.json";
-import mia from '@/authors/mia-blossom.json'
-import misty from '@/authors/misty-shoreline.json'
-import poppy from '@/authors/poppy-palmtree.json'
-import sunny from '@/authors/sunny-starlette.json'
-import { use } from 'react'
 const AuthorPage = ({params}) => {
   const resolvedParams = use(params);
   const { slug } = resolvedParams;
+  const [author, setAuthor] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  switch(slug){
-    case 'coco-lune': return <Author author={coco} />
-    case 'daisy-driftwood': return <Author author={daisy} />
-    case 'kiki-seabreeze': return <Author author={kiki} />
-    case 'mia-blossom': return <Author author={mia} />
-    case 'misty-shoreline': return <Author author={misty} />
-    case 'poppy-palmtree': return <Author author={poppy} />
-    case 'sunny-starlette': return <Author author={sunny} />
-    default: return <Author author={sunny} />
+  useEffect(() => {
+    const fetchData = async () => {
+      const resolvedAuthor = await fetchAuthorBySlug(slug);
+      setAuthor(resolvedAuthor);
+      setLoading(false);
+    };
+
+    fetchData();
+  }, [slug]);
+
+  if (loading) {
+    return <Loading>Loading author...</Loading>;
   }
+
+  if (!author) {
+    return <p>Author not found.</p>;
+  }
+
+  return <Author author={author} />
 
 };
 
