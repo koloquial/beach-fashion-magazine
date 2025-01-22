@@ -50,10 +50,10 @@ const AdventuresPage = ({ params }) => {
       <p className='small-text'>{adventure.date}</p>
         <div className='text-content'>
         {console.log(currentChapter)}
-          {currentChapter.id === "1" && <p><img className='article-image-1' src={`${process.env.HOST_SERVER}${adventure.images[0]}`} />{adventure.introduction}</p>}
+          {currentChapter.id === "1" && <p><img className='article-image-1' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${adventure.images[0]}`} />{adventure.introduction}</p>}
 
           <h2>{currentChapter.headline}</h2>
-          <img className='article-image-2' src={`${process.env.HOST_SERVER}${currentChapter.image}`} />
+          <img className='article-image-2' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${currentChapter.image}`} />
         <p>{currentChapter.body}</p>
         {currentChapter.choices && (
           <div>

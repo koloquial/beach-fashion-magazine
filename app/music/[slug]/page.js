@@ -8,7 +8,7 @@ import Heading from '@/components/Heading';
 const fetchArticleBySlug = async (slug) => {
   console.log('called');
   try {
-    const response = await fetch(`${process.env.HOST_SERVER}/music/${slug}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_SERVER}/music/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -57,7 +57,7 @@ const Music = ({ params }) => {
       <h2>{article.title}</h2>
       <p className='small-text'>{article.date}</p>
         <div className='text-content'>
-        <img className='article-image-2' src={`${process.env.HOST_SERVER}${article.images[1]}`} />
+        <img className='article-image-2' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[1]}`} />
           <p>{article.introduction}</p>
 
         {article.sections.map(passage => {
@@ -69,7 +69,7 @@ const Music = ({ params }) => {
           )
         })}
 
-<img className='article-image-1' src={`${process.env.HOST_SERVER}${article.images[0]}`} />
+<img className='article-image-1' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[0]}`} />
 
         <p>{article.closing}</p>
         <p>{article.rating}</p>

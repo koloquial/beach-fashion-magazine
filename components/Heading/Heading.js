@@ -11,7 +11,7 @@ const Heading = ({ article }) => {
             <p className='title'>BEACH FASHION MAGAZINE</p>
             <div className='author-grid'>
                <div className='profile-container'>
-                 <img src={`${process.env.HOST_SERVER}/images/authors/${article.author.toLowerCase().replace(/\s+/g, '-')}.webp`} />
+                 <img src={`${process.env.NEXT_PUBLIC_HOST_SERVER}/images/authors/${article.author.toLowerCase().replace(/\s+/g, '-')}.webp`} />
                 
                  <div className='attribution'>
                   <p className='small-text'>Written by</p>

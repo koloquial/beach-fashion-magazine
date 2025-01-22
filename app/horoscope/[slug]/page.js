@@ -8,7 +8,7 @@ import Heading from '@/components/Heading';
 const fetchArticleBySlug = async (slug) => {
 
   try {
-    const response = await fetch(`${process.env.HOST_SERVER}/horoscope/${slug}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_SERVER}/horoscope/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -57,7 +57,7 @@ const HoroscopePage = ({ params }) => {
       <div className='content-section'>
 
         <h2>{article.title}</h2>
-        <img className='article-image-2' src={`${process.env.HOST_SERVER}${article.images[0]}`} />
+        <img className='article-image-2' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[0]}`} />
 
 
       <p>
@@ -69,7 +69,7 @@ const HoroscopePage = ({ params }) => {
             <h3>
               {sign} ({details.dates})
             </h3>
-            <img className={`article-image-${index % 2 === 0 ? '1' : '2'}`} src={`${process.env.HOST_SERVER}${article.images[index + 1]}`} />
+            <img className={`article-image-${index % 2 === 0 ? '1' : '2'}`} src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[index + 1]}`} />
             <p>{details.message}</p>
           </div>
         ))}

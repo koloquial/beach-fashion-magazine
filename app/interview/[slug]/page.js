@@ -6,7 +6,7 @@ import Heading from '@/components/Heading';
 
 const fetchArticleBySlug = async (slug) => {
   try {
-    const response = await fetch(`${process.env.HOST_SERVER}/interview/${slug}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_SERVER}/interview/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -54,7 +54,7 @@ const InterviewPage = ({params}) => {
       <h2>{interview.title}</h2>
       <p className='small-text'>{interview.date}</p>
         <div className='text-content'>
-        <img className='article-image-2' src={`${process.env.HOST_SERVER}${interview.images[0]}`} />
+        <img className='article-image-2' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${interview.images[0]}`} />
           <p>{interview.introduction}</p>
 
         {interview.interview.map(passage => {

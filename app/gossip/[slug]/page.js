@@ -8,7 +8,7 @@ import Heading from '@/components/Heading/Heading';
 const fetchArticleBySlug = async (slug) => {
 
   try {
-    const response = await fetch(`${process.env.HOST_SERVER}/gossip/${slug}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_SERVER}/gossip/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -62,7 +62,7 @@ const GossipPage = ({ params }) => {
         {article.content.map((section, index) => (
           <div key={index} style={{ marginBottom: '30px' }}>
             <h3>{section.headline}</h3>
-            <img className={`article-image-${index % 2 === 0 ? '2' : '1'}`} src={`${process.env.HOST_SERVER}${article.images[index]}`} />
+            <img className={`article-image-${index % 2 === 0 ? '2' : '1'}`} src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[index]}`} />
             <p>{section.body}</p>
           </div>
         ))}
