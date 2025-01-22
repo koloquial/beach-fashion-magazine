@@ -6,7 +6,7 @@ const Card = ({ article }) => {
         <Link href={`/${article.type.toLowerCase()}/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
         <div className="card">
             <div className='card-thumbnail'>
-            {article.images && <img src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[0]}`} />}
+            {article.images && <img src={`${process.env.NEXT_PUBLIC_API}${article.images[0]}`} />}
             </div>
 
             <div className='title-author'>

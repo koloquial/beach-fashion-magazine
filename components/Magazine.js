@@ -5,7 +5,7 @@ import Loading from './Loading';
 
 const fetchArticles = async () => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_SERVER}/articles/`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/articles/`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }

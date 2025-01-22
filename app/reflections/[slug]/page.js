@@ -48,21 +48,21 @@ const Reflections = ({ params }) => {
           {article.content.map((paragraph, index) => {
             if(index === 1){
               return (<div key={index}>
-              {article.images && <img className='article-image-1' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[0]}`} />}
+              {article.images && <img className='article-image-1' src={`${process.env.NEXT_PUBLIC_API}${article.images[0]}`} />}
               <p >{paragraph}</p>
               </div>)
             }
 
             if(index === 3){
               return (<div key={index}>
-              {article.images && <img className='article-image-2' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[1]}`} />}
+              {article.images && <img className='article-image-2' src={`${process.env.NEXT_PUBLIC_API}${article.images[1]}`} />}
               <p >{paragraph}</p>
               </div>)
             }
 
             if(index === 5){
               return (<div key={index}>
-              {article.images && <img className='article-image-3' src={`${process.env.NEXT_PUBLIC_HOST_SERVER}${article.images[2]}`} />}
+              {article.images && <img className='article-image-3' src={`${process.env.NEXT_PUBLIC_API}${article.images[2]}`} />}
               <p >{paragraph}</p>
               </div>)
             }

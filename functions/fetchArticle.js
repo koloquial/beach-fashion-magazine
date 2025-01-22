@@ -1,6 +1,6 @@
 export const fetchArticle = async (category, slug) => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_SERVER}/${category}/${slug}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/${category}/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
