@@ -6,9 +6,9 @@ import Loading from '@/components/Loading';
 import Heading from '@/components/Heading';
 
 const fetchArticleBySlug = async (slug) => {
-  console.log('called');
+
   try {
-    const response = await fetch(`${process.env.HOST_SERVER}/music/${slug}`);
+    const response = await fetch(`${process.env.HOST_SERVER}/horoscope/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -20,12 +20,13 @@ const fetchArticleBySlug = async (slug) => {
   }
 };
 
-const Music = ({ params }) => {
+const HoroscopePage = ({ params }) => {
   const resolvedParams = use(params); 
   const { slug } = resolvedParams;
 
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,11 +39,11 @@ const Music = ({ params }) => {
   }, [slug]);
 
   if (loading) {
-    return <Loading>Loading music article</Loading>;
+    return <Loading>Loading horoscope article</Loading>;
   }
 
   if (!article) {
-    return <p>Music article not found.</p>;
+    return <p>Horoscope article not found.</p>;
   }
 
   return (
@@ -54,31 +55,36 @@ const Music = ({ params }) => {
         
 
       <div className='content-section'>
-      <h2>{article.title}</h2>
-      <p className='small-text'>{article.date}</p>
-        <div className='text-content'>
-        <img className='article-image-2' src={`${process.env.HOST_SERVER}${article.images[1]}`} />
-          <p>{article.introduction}</p>
 
-        {article.sections.map(passage => {
-          return (
-            <>
-            <h3>{passage.headline}</h3>
-            <p>{passage.body}</p>
-            </>
-          )
-        })}
+        <h2>{article.title}</h2>
+        <img className='article-image-2' src={`${process.env.HOST_SERVER}${article.images[0]}`} />
 
-<img className='article-image-1' src={`${process.env.HOST_SERVER}${article.images[0]}`} />
 
-        <p>{article.closing}</p>
-        <p>{article.rating}</p>
-        <p>{article.signature}</p>
+      <p>
+        {article.introduction}
+      </p>
+      <div>
+        {Object.entries(article.horoscopes).map(([sign, details], index) => (
+          <div key={sign} style={{ marginBottom: '20px' }}>
+            <h3>
+              {sign} ({details.dates})
+            </h3>
+            <img className={`article-image-${index % 2 === 0 ? '1' : '2'}`} src={`${process.env.HOST_SERVER}${article.images[index + 1]}`} />
+            <p>{details.message}</p>
+          </div>
+        ))}
       </div>
+      <p >
+        {article.closing}
+      </p>
+      <p>{article.signature}</p>
+    </div>
+        
+
     </div>
     </div>
-    </div>
+   
   );
 };
 
-export default Music;
+export default HoroscopePage;

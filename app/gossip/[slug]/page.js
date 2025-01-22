@@ -3,12 +3,12 @@
 import React, { use, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Loading from '@/components/Loading';
-import Heading from '@/components/Heading';
+import Heading from '@/components/Heading/Heading';
 
 const fetchArticleBySlug = async (slug) => {
-  console.log('called');
+
   try {
-    const response = await fetch(`${process.env.HOST_SERVER}/music/${slug}`);
+    const response = await fetch(`${process.env.HOST_SERVER}/gossip/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -20,7 +20,7 @@ const fetchArticleBySlug = async (slug) => {
   }
 };
 
-const Music = ({ params }) => {
+const GossipPage = ({ params }) => {
   const resolvedParams = use(params); 
   const { slug } = resolvedParams;
 
@@ -38,11 +38,11 @@ const Music = ({ params }) => {
   }, [slug]);
 
   if (loading) {
-    return <Loading>Loading music article</Loading>;
+    return <Loading>Loading horoscope article</Loading>;
   }
 
   if (!article) {
-    return <p>Music article not found.</p>;
+    return <p>Gossip article not found.</p>;
   }
 
   return (
@@ -54,31 +54,30 @@ const Music = ({ params }) => {
         
 
       <div className='content-section'>
-      <h2>{article.title}</h2>
-      <p className='small-text'>{article.date}</p>
-        <div className='text-content'>
-        <img className='article-image-2' src={`${process.env.HOST_SERVER}${article.images[1]}`} />
-          <p>{article.introduction}</p>
 
-        {article.sections.map(passage => {
-          return (
-            <>
-            <h3>{passage.headline}</h3>
-            <p>{passage.body}</p>
-            </>
-          )
-        })}
+        <h2 >{article.title}</h2>
 
-<img className='article-image-1' src={`${process.env.HOST_SERVER}${article.images[0]}`} />
-
-        <p>{article.closing}</p>
-        <p>{article.rating}</p>
-        <p>{article.signature}</p>
       </div>
+      <div>
+        {article.content.map((section, index) => (
+          <div key={index} style={{ marginBottom: '30px' }}>
+            <h3>{section.headline}</h3>
+            <img className={`article-image-${index % 2 === 0 ? '2' : '1'}`} src={`${process.env.HOST_SERVER}${article.images[index]}`} />
+            <p>{section.body}</p>
+          </div>
+        ))}
+      </div>
+      
+        <p>{article.closing}</p>
+        <p >{article.signature}</p>
+
+
     </div>
+        
+
     </div>
-    </div>
+   
   );
 };
 
-export default Music;
+export default GossipPage;

@@ -15,7 +15,7 @@ import { AiFillDislike } from "react-icons/ai";
 
 const fetchAuthorBySlug = async (slug) => {
   try {
-    const response = await fetch(`http://localhost:5000/authors/${slug}`);
+    const response = await fetch(`${process.env.HOST_SERVER}/authors/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -57,7 +57,7 @@ const AuthorPage = ({params}) => {
 
 <p className='title'>BEACH FASHION MAGAZINE</p>
 <h2>{author.name}</h2>
-<img className='article-image-2' src={`http://localhost:5000${author.profile}`} />
+<img className='article-image-2' src={`${process.env.HOST_SERVER}${author.profile}`} />
 <p>{author.statement}</p>
 <GiAries />
       <h3>Favorites</h3>

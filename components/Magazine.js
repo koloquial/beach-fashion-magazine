@@ -5,7 +5,7 @@ import Loading from './Loading';
 
 const fetchArticles = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/articles/`);
+    const response = await fetch(`${process.env.HOST_SERVER}/articles/`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }

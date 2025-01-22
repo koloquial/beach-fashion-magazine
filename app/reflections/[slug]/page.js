@@ -3,27 +3,11 @@
 import React, { use, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Loading from '@/components/Loading';
-import { FaShareAlt } from "react-icons/fa";
-import { FaComment } from "react-icons/fa";
-import { BiLike } from "react-icons/bi";
-import { BiSolidLike } from "react-icons/bi";
-
-const fetchArticleBySlug = async (slug) => {
-  try {
-    const response = await fetch(`http://localhost:5000/articles/${slug}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    const article = await response.json();
-    return article;
-  } catch (error) {
-    console.error('Error fetching article:', error);
-    return null;
-  }
-};
+import Heading from '@/components/Heading';
+import { fetchArticle } from '@/functions/fetchArticle';
 
 const Reflections = ({ params }) => {
-  const resolvedParams = use(params); // Unwrap params if it's a Promise
+  const resolvedParams = use(params); 
   const { slug } = resolvedParams;
 
   const [article, setArticle] = useState(null);
@@ -31,7 +15,7 @@ const Reflections = ({ params }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const resolvedArticle = await fetchArticleBySlug(slug);
+      const resolvedArticle = await fetchArticle('reflection', slug);
       setArticle(resolvedArticle);
       setLoading(false);
     };
@@ -51,39 +35,9 @@ const Reflections = ({ params }) => {
     <div className='page-container'>
       <div className='article-container'>
 
-        <p className='title'>BEACH FASHION MAGAZINE</p>
-    
-        <div className='page-grid'>
-        <div className='author-grid'>
-            <div className='profile-container'>
-              <img src={`http://localhost:5000/images/authors/${article.author.toLowerCase().replace(/\s+/g, '-')}.webp`} />
-            </div>
-            
-            <div className='attribution'>
-              <p className='small-text'>Written by</p>
-              
-              <Link href={`/authors/${article.author.toLowerCase().replace(/\s+/g, '-')}`}>
-                {article.author}
-              </Link>
-            </div>
-          </div>
-          <div>
-            <a href='#'>
-            <span style={{marginRight: '20px'}}><FaShareAlt /> </span>
-            </a>
-            
+  
+        <Heading article={article} />
           
-          <a href='#'>
-          <span style={{marginRight: '20px'}}><FaComment /> </span>
-          </a>
-            
-            
-          
-          <a href='#'>
-            <span style={{marginRight: '20px'}}><BiLike /> </span>
-            </a>
-            </div>
-        </div>
 
         
 
@@ -94,21 +48,21 @@ const Reflections = ({ params }) => {
           {article.content.map((paragraph, index) => {
             if(index === 1){
               return (<div key={index}>
-              {article.images && <img className='article-image-1' src={`http://localhost:5000${article.images[0]}`} />}
+              {article.images && <img className='article-image-1' src={`${process.env.HOST_SERVER}${article.images[0]}`} />}
               <p >{paragraph}</p>
               </div>)
             }
 
             if(index === 3){
               return (<div key={index}>
-              {article.images && <img className='article-image-2' src={`http://localhost:5000${article.images[1]}`} />}
+              {article.images && <img className='article-image-2' src={`${process.env.HOST_SERVER}${article.images[1]}`} />}
               <p >{paragraph}</p>
               </div>)
             }
 
             if(index === 5){
               return (<div key={index}>
-              {article.images && <img className='article-image-3' src={`http://localhost:5000${article.images[2]}`} />}
+              {article.images && <img className='article-image-3' src={`${process.env.HOST_SERVER}${article.images[2]}`} />}
               <p >{paragraph}</p>
               </div>)
             }

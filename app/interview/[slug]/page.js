@@ -2,10 +2,11 @@
 import React, { use, useState, useEffect } from 'react'
 import Link from 'next/link';
 import Loading from '@/components/Loading';
+import Heading from '@/components/Heading';
 
 const fetchArticleBySlug = async (slug) => {
   try {
-    const response = await fetch(`http://localhost:5000/interview/${slug}`);
+    const response = await fetch(`${process.env.HOST_SERVER}/interview/${slug}`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -45,20 +46,7 @@ const InterviewPage = ({params}) => {
     <div className='page-container'>
       <div className='article-container'>
 
-        <p className='title'>BEACH FASHION MAGAZINE</p>
-        <div className='author-grid'>
-            <div className='profile-container'>
-              <img src={`http://localhost:5000/images/authors/${interview.author.toLowerCase().replace(/\s+/g, '-')}.webp`} />
-            </div>
-            
-            <div className='attribution'>
-              <p className='small-text'>Written by</p>
-              
-              <Link href={`/authors/${interview.author.toLowerCase().replace(/\s+/g, '-')}`}>
-                {interview.author}
-              </Link>
-            </div>
-          </div>
+      <Heading article={article} />
          
         
 
@@ -66,7 +54,7 @@ const InterviewPage = ({params}) => {
       <h2>{interview.title}</h2>
       <p className='small-text'>{interview.date}</p>
         <div className='text-content'>
-        <img className='article-image-2' src={`http://localhost:5000${interview.images[0]}`} />
+        <img className='article-image-2' src={`${process.env.HOST_SERVER}${interview.images[0]}`} />
           <p>{interview.introduction}</p>
 
         {interview.interview.map(passage => {
